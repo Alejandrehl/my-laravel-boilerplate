@@ -76,5 +76,10 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- MAIN JS -->
+    <script src="{{ asset('/js/main.js') }}"></script>
 </body>
 </html>
