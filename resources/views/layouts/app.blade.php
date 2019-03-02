@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
     <div id="app">
@@ -77,9 +80,11 @@
         </main>
     </div>
 
-    <!-- AXIOS -->
+    <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- MAIN JS -->
+    <!-- Main.js -->
     <script src="{{ asset('/js/main.js') }}"></script>
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </body>
 </html>
