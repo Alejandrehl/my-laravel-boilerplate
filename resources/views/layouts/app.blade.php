@@ -77,6 +77,7 @@
 
         <main class="py-4">
             @yield('content')
+            <button class="btn btn-primary" onclick="testMainJS()">Hola Main.js <i class="fab fa-freebsd"></i></button>
         </main>
     </div>
 
@@ -84,7 +85,5 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Main.js -->
     <script src="{{ asset('/js/main.js') }}"></script>
-    <!-- Vue.js -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </body>
 </html>
