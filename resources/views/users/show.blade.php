@@ -21,7 +21,19 @@
 </table>
 
 @can('edit', $user)
-    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Editar</a>
+    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">Editar</a>
+@endcan
+
+@can('destroy', $user)
+<form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
+    @csrf
+    {{ method_field('DELETE') }}
+
+    <button type="submit" class="btn btn-danger btn-sm text-white">
+        Eliminar perfil
+        <i class="fas fa-trash-alt"></i>
+    </button>
+</form>
 @endcan
 
 @endsection

@@ -10,7 +10,6 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware(['auth', 'roles:admin']);
         $this->middleware('auth', ['except' => ['show']]);
         $this->middleware('roles:admin', ['except' => ['edit', 'update', 'show']]);
     }
@@ -97,6 +96,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $this->authorize('destroy', $user);
+        $user->delete();
+        return back();
     }
 }

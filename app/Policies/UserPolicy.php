@@ -35,4 +35,8 @@ class UserPolicy
     public function update(User $authUser, User $user) {
         return $authUser->id === $user->id;
     }
+
+    public function destroy(User $authUser, User $user) {
+        return $authUser->id === $user->id;
+    }
 }
