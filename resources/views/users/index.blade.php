@@ -18,9 +18,7 @@
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td>
-                @foreach($user->roles as $role)
-                    @lang($role->display_name)
-                @endforeach
+                {{ __($user->roles->pluck('display_name')->implode(' - ')) }}
             </td>
             <td>
                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm text-white">
