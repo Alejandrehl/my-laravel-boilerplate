@@ -39,7 +39,14 @@ class User extends Authenticatable
     ];
 
     // If they are equal, it will return true.
-    public function hasRole($role) {
-        return $this->role === $role;
+    public function hasRoles(array $roles) {
+        foreach ($roles as $role) {
+            if ($this->role === $role) {
+                return true;
+            }
+        }
+
+        return false;
     }
+
 }

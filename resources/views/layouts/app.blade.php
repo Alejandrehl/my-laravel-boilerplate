@@ -58,7 +58,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    @if(Auth::user()->hasRole('admin'))
+                                    @if(Auth::user()->hasRoles(['admin']))
                                         <a class="nav-link" href="{{ route('users.index') }}">
                                             <i class="fas fa-users"></i>
                                             {{ __('Users') }}

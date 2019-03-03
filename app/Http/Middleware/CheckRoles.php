@@ -14,11 +14,16 @@ class CheckRoles
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next)
     {
-        if (Auth::user()->hasRole($role)) {
+        // func_get_args Toma todos los parametros
+        // array_slice Quita los dos primeros parametros.
+        $roles = array_slice(func_get_args(), 2);
+
+        if (Auth::user()->hasRoles($roles)) {
             return $next($request);
         }
+
         return redirect('/');
     }
 }
