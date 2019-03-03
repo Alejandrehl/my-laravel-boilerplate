@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h1 class="text-center">@lang('Edit User')</h1>
-<form action="{{ route('users.update', $user->id) }}">
+<form action="{{ route('users.update', $user->id) }}" method="POST">
     @csrf
     {{ method_field('PUT') }}
     <div class="form-group col-md-8 offset-md-2">
