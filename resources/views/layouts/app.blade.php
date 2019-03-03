@@ -9,9 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -86,9 +83,13 @@
         </main>
     </div>
 
+    <!-- Scripts -->
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Main.js -->
-    <script src="{{ asset('/js/main.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>
