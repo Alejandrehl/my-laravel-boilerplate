@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <h1 class="text-center">@lang('Edit User')</h1>
+@if(session()->has('info'))
+    <div class="alert alert-success">
+        {{ session('info') }}
+    </div>
+@endif
 <form action="{{ route('users.update', $user->id) }}" method="POST">
     @csrf
     {{ method_field('PUT') }}
