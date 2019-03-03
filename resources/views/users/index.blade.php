@@ -26,9 +26,14 @@
                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm text-white">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
-                    <a href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger btn-sm text-white">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
+                    <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        {{ method_field('DELETE') }}
+
+                        <button type="submit" class="btn btn-danger btn-sm text-white">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
                 </td>
             </tr>
             @endforeach
