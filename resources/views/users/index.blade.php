@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Users Index</h1>
+    <h1>@lang('User List')</h1>
 @endsection
