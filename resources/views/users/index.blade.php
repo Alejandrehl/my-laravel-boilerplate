@@ -22,7 +22,14 @@
                         @lang($role->display_name)
                     @endforeach
                 </td>
-                <td></td>
+                <td>
+                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm text-white">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger btn-sm text-white">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
             </tr>
             @endforeach
         </tbody>
