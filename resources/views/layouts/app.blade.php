@@ -54,7 +54,7 @@
                             @endif
                         @else
                             <li>
-                                <a href="#" class="nav-link">{{ Auth::user()->name }}</a>
+                                <a href="{{ route('users.edit', Auth::user()->id) }}" class="nav-link">{{ Auth::user()->name }}</a>
                             </li>
                             <li>
                                 @if(Auth::user()->hasRoles(['admin']))
