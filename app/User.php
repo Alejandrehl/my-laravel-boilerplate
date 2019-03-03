@@ -42,7 +42,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'assigned_roles');
     }
 
-    // If they are equal, it will return true.
     public function hasRoles(array $roles) {
         return $this->roles->pluck('name')->intersect($roles)->count();
     }
