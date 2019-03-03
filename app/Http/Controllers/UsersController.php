@@ -12,7 +12,7 @@ class UsersController extends Controller
     {
         //$this->middleware(['auth', 'roles:admin']);
         $this->middleware('auth');
-        $this->middleware('roles:admin', ['except' => 'edit']);
+        $this->middleware('roles:admin', ['except' => ['edit', 'update']]);
     }
 
     /**
@@ -55,7 +55,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -67,6 +68,9 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
+        //Se pasa el usuario que se quiere autorizar
+        //Relacionados a la pólitica de acceso: UserPolicy, AuthServiceProvider.
+        $this->authorize('edit', $user);
         return view('users.edit', compact('user'));
     }
 
@@ -80,6 +84,7 @@ class UsersController extends Controller
     public function update(UpdateUserRequest $request, $id)
     {
         $user = User::findOrFail($id);
+        $this->authorize('update', $user);
         $user->update($request->all());
         return back()->with('info', 'Updated user');
     }
