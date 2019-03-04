@@ -5,6 +5,7 @@
 - Copy .env.example to .env or edit as you want
 - Create database on PhpMyAdmin or your favourite DB/Administrator DB
 - cd /my-laravel-boilerplate
+- composer install
 - Execute migrations and seeders: php artisan db:migrate --seed 
 
 ## Content of the project
