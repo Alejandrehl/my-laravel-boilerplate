@@ -6,7 +6,7 @@
 - Create database on PhpMyAdmin or your favourite DB/Administrator DB
 - cd /my-laravel-boilerplate
 - composer install
-- Execute migrations and seeders: php artisan db:migrate --seed 
+- Execute migrations and seeders: php artisan migrate --seed 
 
 ## Content of the project
 
