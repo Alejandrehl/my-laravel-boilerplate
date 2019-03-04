@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<h1>@lang('User List')</h1>
+<div class="text-center">
+    <h1>@lang('User List')</h1>
+    <a href="{{ route('users.create') }}" class="btn btn-info text-white mb-1">
+        <i class="fas fa-plus"></i>
+        @lang('Create user')
+    </a>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -21,6 +27,9 @@
                 {{ __($user->roles->pluck('display_name')->implode(' - ')) }}
             </td>
             <td>
+                <a href="{{ route('users.show', $user->id) }}" class="btn btn-info btn-sm text-white">
+                    <i class="fas fa-eye"></i>
+                </a>
                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm text-white">
                     <i class="fas fa-pencil-alt"></i>
                 </a>

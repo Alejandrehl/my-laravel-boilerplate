@@ -38,6 +38,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Para encryptar la contraseña cada vez que se cree un nuevo usuario.
+    public function setPasswordAttribute($password) {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
     public function roles() {
         return $this->belongsToMany(Role::class, 'assigned_roles');
     }

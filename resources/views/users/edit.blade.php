@@ -25,6 +25,7 @@
                 <br>
             @endforeach
         </div>
+        <hr>
         <button type="submit" class="btn btn-primary float-right mt-1">
             @lang('Update')
         </button>
