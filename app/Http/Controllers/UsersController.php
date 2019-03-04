@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 use App\Http\Requests\UpdateUserRequest;
 
 class UsersController extends Controller
@@ -70,7 +71,8 @@ class UsersController extends Controller
         //Se pasa el usuario que se quiere autorizar
         //Relacionados a la pólitica de acceso: UserPolicy, AuthServiceProvider.
         $this->authorize('edit', $user);
-        return view('users.edit', compact('user'));
+        $roles = Role::pluck('display_name', 'id');
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -85,6 +87,7 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $this->authorize('update', $user);
         $user->update($request->all());
+        $user->roles()->sync($request->roles);
         return back()->with('info', 'Updated user');
     }
 
