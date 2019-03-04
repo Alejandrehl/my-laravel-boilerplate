@@ -43,6 +43,7 @@ class User extends Authenticatable
     }
 
     public function hasRoles(array $roles) {
+        //Count devuelve 1 o más si existen intersecciones, lo que significará TRUE, si no FALSE.
         return $this->roles->pluck('name')->intersect($roles)->count();
     }
 

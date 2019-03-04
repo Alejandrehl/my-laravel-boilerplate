@@ -13,9 +13,7 @@
     <tr>
         <th>@lang('Role')</th>
         <td>
-            @foreach($user->roles as $role)
-                {{ $role->display_name }}
-            @endforeach
+            {{ __($user->roles->pluck('display_name')->implode(' - ')) }}
         </td>
     </tr>
 </table>
@@ -24,8 +22,7 @@
     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">Editar</a>
 @endcan
 
-{{-- @can('destroy', $user) --}}
-@if(Auth::user()->isAdmin())
+@can('destroy', $user)
 <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
     @csrf
     {{ method_field('DELETE') }}
@@ -35,7 +32,6 @@
         <i class="fas fa-trash-alt"></i>
     </button>
 </form>
-@endif
-{{-- @endcan --}}
+@endcan
 
 @endsection
