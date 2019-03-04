@@ -106,6 +106,7 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $this->authorize('destroy', $user);
         $user->delete();
-        return back();
+        //return back();
+        return redirect()->route('users.index');
     }
 }
